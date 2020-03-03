@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { LIST_PAGE_ID } from './update.js';
+import { LIST_PAGE_ID } from './constants.js';
 import './App.css';
 
 export default class UpdateView extends Component{
@@ -28,7 +28,7 @@ export default class UpdateView extends Component{
     this.onNameChange=this.onNameChange.bind(this);
     this.onScientificNameChange=this.onScientificNameChange.bind(this);
     this.onTreeImageChange=this.onTreeImageChange.bind(this);
-    this.onSeedImageChange=this.onSeedImageURLChange.bind(this);
+    this.onSeedImageChange=this.onSeedImageChange.bind(this);
     this.onDescriptionChange=this.onDescriptionChange.bind(this);
     this.onUpdateClick = this.onUpdateClick.bind(this);
   }
@@ -98,9 +98,6 @@ render(){
     return(
       <div>
         <h1>Edit</h1>
-        <div >
-            {error}
-        </div>
         <br />
         <input
             type="text"
@@ -124,13 +121,13 @@ render(){
         <br /><br />
         <input
             type="text"
-            value={treeImageURL}
+            value={treeImage}
             onChange = {(event)=>this.onTreeImageChange(event)}
         />
         <br /> <br />
         <input
             type="text"
-            value={seedImageURL}
+            value={seedImage}
             onChange = {(event)=>this.onSeedImageChange(event)}
         />
         <br /><br />
