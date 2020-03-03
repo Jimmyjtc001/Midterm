@@ -55,7 +55,7 @@ onLogoutClick(event){
                    <input
                       type="text"
                       value={searchTerm}
-                      placeholder="Search your Tree Here"
+                      placeholder="click here for serarch"
                       onChange={(event)=>this.onSearchChange(event)}
                   />
               </center>
@@ -74,7 +74,7 @@ onLogoutClick(event){
 function TreeList(props){
   let treeElements = props.treeArr.map(
     (treeObj) =>
-    <tr className="table-content">
+    <tr>
       <td>{treeObj.name}</td>
       <td>
         <button  onClick={(event,id)=>{props.onViewClick(event,treeObj.id)}}>View</button>
@@ -84,7 +84,7 @@ function TreeList(props){
     )
   return(
     <table>
-      <tr className="table-header">
+      <tr>
         <th>Tree Name</th>
         <th>Description</th>
       </tr>

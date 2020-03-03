@@ -73,15 +73,15 @@ onDescriptionChange(event){
   })
 }
 onUpdateClick(event){
-  const { name,scientificName,treeImageURL,seedImageURL,description } = this.state;
+  const { name,scientificName,treeImage,seedImage,description } = this.state;
   let treeArr = JSON.parse(localStorage.getItem("Tree_Arr"));
   let treeObj;
   for (treeObj of treeArr){
     if(treeObj.id === this.props.id){
       treeObj.name = name;
       treeObj.scientificName = scientificName;
-      treeObj.treeImageUrl = treeImageURL;
-      treeObj.seedImageUrl = seedImageURL;
+      treeObj.treeImage = treeImage;
+      treeObj.seedImage = seedImage;
       treeObj.shortDescription = description;
       localStorage.setItem("Tree_Object",JSON.stringify(treeObj))
       break;
@@ -98,7 +98,7 @@ render(){
     return(
       <div>
         <h1>Edit</h1>
-        <div className="validation-error" >
+        <div >
             {error}
         </div>
         <br />
@@ -108,8 +108,8 @@ render(){
             onChange = {(event)=>this.onNameChange(event)}
         />
         {" "}{this.state.message === "It's work. Please enter a new name" &&
-                <div className="validation-error">
-                    {error}
+                <div>
+
                 </div>
                   }
 
@@ -138,8 +138,6 @@ render(){
             type="text"
             value={description}
             onChange = {(event)=>this.onDescriptionChange(event)}
-            rows = "15"
-            cols = "80"
         />
         <br />  <br />
         <button  onClick={(event)=>this.onUpdateClick(event)}>Save</button>
